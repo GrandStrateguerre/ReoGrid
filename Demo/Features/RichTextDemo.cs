@@ -16,40 +16,39 @@
  * 
  ****************************************************************************/
 
-using System;
 using System.Windows.Forms;
 
 using unvell.ReoGrid.Graphics;
 
 namespace unvell.ReoGrid.Demo.Features
 {
-	public partial class RichTextDemo : UserControl
-	{
-		private Worksheet sheet;
+    public partial class RichTextDemo : UserControl
+    {
+        //private Worksheet sheet;
 
-		public RichTextDemo()
-		{
-			InitializeComponent();
+        public RichTextDemo()
+        {
+            InitializeComponent();
 
-			var sheet = grid.CurrentWorksheet;
+            var sheet = grid.CurrentWorksheet;
 
-			sheet.MergeRange("B2:F6");
+            sheet.MergeRange("B2:F6");
 
-			sheet["B2"] = new Drawing.RichText()
-				.Regular("The ")
-				.Bold("Rich Text Format")
-				.Regular(" (often abbreviated ")
-				.Bold("RTF")
-				.Regular(") is a proprietary")
-				.Superscript("[6][7][8]")
-				.Regular(" document file format with published specification developed by Microsoft Corporation from ")
-				.Span("1987", textColor: SolidColor.OrangeRed)
-				.Span(" until ", textColor: SolidColor.Black)
-				.Span("2008", textColor: SolidColor.OrangeRed)
-				.Span(" for cross-platform document interchange with Microsoft products.", textColor: SolidColor.Black);
+            sheet["B2"] = new Drawing.RichText()
+                .Regular("The ")
+                .Bold("Rich Text Format")
+                .Regular(" (often abbreviated ")
+                .Bold("RTF")
+                .Regular(") is a proprietary")
+                .Superscript("[6][7][8]")
+                .Regular(" document file format with published specification developed by Microsoft Corporation from ")
+                .Span("1987", textColor: SolidColor.OrangeRed)
+                .Span(" until ", textColor: SolidColor.Black)
+                .Span("2008", textColor: SolidColor.OrangeRed)
+                .Span(" for cross-platform document interchange with Microsoft products.", textColor: SolidColor.Black);
 
-			sheet.Cells["B2"].Style.TextWrap = TextWrapMode.WordBreak;
-		}
-		
-	}
+            sheet.Cells["B2"].Style.TextWrap = TextWrapMode.WordBreak;
+        }
+
+    }
 }
